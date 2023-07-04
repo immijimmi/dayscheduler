@@ -12,10 +12,10 @@ class Constants:
     FONT_VERY_LARGE_BOLD = ("Bahnschrift", 15)
 
     COLOURS = {
-        "dark_green": "#085600",
+        "dark_green": "#074700",
         "green": "#0A6E00",
         "light_green": "#71BF69",
-        "very_light_green": "#D1FFCC",
+        "very_light_green": "#DCFFD8",
 
         "very_dark_grey": "#383838",
         "grey": "#BCBCBC",

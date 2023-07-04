@@ -42,7 +42,7 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
         self.children["string_editor"] = None
         self.children["number_stepper"] = None
 
-        self._apply_dividers(AppConstants.DIVIDER_SIZE_SMALL, columns=(1,))
+        self._apply_dividers(AppConstants.DIVIDER_SIZE_SMALL, rows=(1,))
 
         string_editor = StringEditor(
             self._frame,
@@ -60,7 +60,7 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
             get_data=lambda numberstepper_obj: self.duration_m,
             on_change=on_change_numberstepper,
             text_format="{0}m",
-            step_amounts=(15,),
+            step_amounts=(15, 60),
             limits=(15, None),
             styles={
                 "button": {**self.styles["number_stepper"]},
@@ -68,7 +68,7 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
             }
         )
         self.children["number_stepper"] = numberstepper
-        numberstepper.render().grid(row=0, column=2, sticky="nswe")
+        numberstepper.render().grid(row=2, column=0, sticky="nswe")
 
         self.add_draggable_widget(self._frame)
 

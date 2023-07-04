@@ -80,7 +80,7 @@ class Config:
             "string_editor": {
                 "bg": Constants.COLOURS["very_light_green"],
                 "fg": Constants.COLOURS["dark_green"],
-                "font": Constants.FONT_TINY_BOLD
+                "font": Constants.FONT_SMALL_BOLD
             },
             "non_pending": {
                 "bg": Constants.COLOURS["very_light_grey"]
