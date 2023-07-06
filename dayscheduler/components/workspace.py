@@ -5,6 +5,7 @@ from tkinter import Button
 from functools import partial
 from typing import Callable, Union
 
+from ..constants import Constants as AppConstants
 from .enums import EntryKey
 from .workspaceentry import WorkspaceEntry
 from .timelineentry import TimelineEntry
@@ -12,13 +13,13 @@ from .workspacebin import WorkspaceBin
 
 
 class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
-    GRID_MINSIZES = (180, 2, 75)  # (column 0, divider rows, bin row)
+    GRID_MINSIZES = (180, AppConstants.PAD_LARGE, 75)  # (column 0, divider rows, bin row)
 
     def __init__(self, scheduler, container, on_change: Callable[[tuple[int, int]], None], styles=None):
         super().__init__(container, on_change=on_change, styles=styles)
 
         styles = styles or {}
-        self.styles["button"] = styles.get("button", {})
+        self.styles["plus_button"] = styles.get("plus_button", {})
         self.styles["entry_frame"] = styles.get("entry_frame", {})
         self.styles["bin_frame"] = styles.get("bin_frame", {})
         self.styles["string_editor"] = styles.get("string_editor", {})
@@ -82,9 +83,9 @@ class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
         self._apply_dividers(self.GRID_MINSIZES[1], rows=divider_rows)
         self._apply_dividers(self.GRID_MINSIZES[2], rows=(stretch_row+1,))
 
-        plus_button = Button(self._frame, text="+", command=self._on_click_plus_button, **self.styles["button"])
+        plus_button = Button(self._frame, text="+", command=self._on_click_plus_button, **self.styles["plus_button"])
         self.children["plus_button"] = plus_button
-        plus_button.grid(row=0, column=1, sticky="nswe")
+        plus_button.grid(row=0, column=0, columnspan=2, sticky="nswe")
 
         for entry_index, entry_data in enumerate(entries_data):
             entry = WorkspaceEntry(

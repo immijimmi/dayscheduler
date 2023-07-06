@@ -65,7 +65,15 @@ class Config:
             "frame": {
                 "bg": Constants.COLOURS["very_light_grey"],
                 "relief": "groove",
-                "borderwidth": Constants.BORDERWIDTH_SMALL
+                "borderwidth": Constants.BORDERWIDTH_SMALL,
+                "padx": Constants.PAD_MEDIUM,
+                "pady": Constants.PAD_MEDIUM
+            },
+            "plus_button": {
+                "bg": Constants.COLOURS["grey"],
+                "fg": Constants.COLOURS["very_dark_grey"],
+                "borderwidth": Constants.BORDERWIDTH_TINY,
+                "font": Constants.FONT_VERY_LARGE
             },
             "entry_frame": {
                 "relief": "raised",
@@ -83,18 +91,19 @@ class Config:
                 "font": Constants.FONT_LARGE_BOLD
             },
             "stepper": {
-                "bg": Constants.COLOURS["light_green"],
-                "font": Constants.FONT_SMALL
+                "bg": Constants.COLOURS["light_green"]
             },
             "stepper_button": {
                 "borderwidth": Constants.BORDERWIDTH_TINY,
                 "fg": Constants.COLOURS["dark_green"],
-                "disabledforeground": Constants.COLOURS["green"]
+                "disabledforeground": Constants.COLOURS["green"],
+                "font": Constants.FONT_SMALL
             },
             "stepper_label": {
                 "relief": "raised",
                 "borderwidth": Constants.BORDERWIDTH_TINY,
-                "fg": Constants.COLOURS["dark_green"]
+                "fg": Constants.COLOURS["dark_green"],
+                "font": Constants.FONT_SMALL_BOLD
             },
             "non_pending": {
                 "bg": Constants.COLOURS["very_light_grey"]

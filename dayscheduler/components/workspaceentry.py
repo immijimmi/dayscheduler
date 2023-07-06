@@ -9,7 +9,7 @@ from .enums import EntryKey
 
 
 class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
-    GRID_MINSIZES = (28, 38, 180)  # Rows 0 and 2, column 0, column 2
+    GRID_MINSIZES = (28, 36, 180)  # Rows 0 and 2, column 0, column 2
 
     def __init__(
             self, container,

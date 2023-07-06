@@ -9,6 +9,7 @@ class Constants:
     FONT_MEDIUM = ("Bahnschrift Light", 12)
     FONT_MEDIUM_BOLD = ("Bahnschrift", 12)
     FONT_LARGE_BOLD = ("Bahnschrift", 13)
+    FONT_VERY_LARGE = ("Bahnschrift Light", 15)
     FONT_VERY_LARGE_BOLD = ("Bahnschrift", 15)
 
     COLOURS = {
@@ -28,7 +29,7 @@ class Constants:
     }
 
     PAD_SMALL = 2
-    PAD_MEDIUM = 3
+    PAD_MEDIUM = 4
     PAD_LARGE = 5
     PAD_VERY_LARGE = 8
 
@@ -38,5 +39,7 @@ class Constants:
 
     DIVIDER_SIZE_SMALL = 2
     DIVIDER_SIZE_MEDIUM = 3
-    DIVIDER_SIZE_LARGE = 5
+    DIVIDER_SIZE_LARGE = 6
     DIVIDER_SIZE_VERY_LARGE = 8
+
+    SQUARE_BUTTON_SIZE_MEDIUM = 10
