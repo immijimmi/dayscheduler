@@ -1,6 +1,8 @@
 class Constants:
     WINDOW_TITLE = "Day Scheduler"
 
+    NEW_WORKSPACE_ENTRY_DEFAULT_TITLE = "(New Entry)"
+
     # Styles
     FONT_TINY = ("Bahnschrift Light", 10)
     FONT_TINY_BOLD = ("Bahnschrift", 10)
@@ -41,5 +43,3 @@ class Constants:
     DIVIDER_SIZE_MEDIUM = 3
     DIVIDER_SIZE_LARGE = 6
     DIVIDER_SIZE_VERY_LARGE = 8
-
-    SQUARE_BUTTON_SIZE_MEDIUM = 10

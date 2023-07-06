@@ -137,7 +137,7 @@ class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
     def _on_click_plus_button(self):
         workspace_entries = self.state.registered_get("workspace_entries")
 
-        new_entry = {EntryKey.TITLE: "", EntryKey.DURATION_M: 15}
+        new_entry = {EntryKey.TITLE: AppConstants.NEW_WORKSPACE_ENTRY_DEFAULT_TITLE, EntryKey.DURATION_M: 15}
         workspace_entries.append(new_entry)
 
         self.state.registered_set(workspace_entries, "workspace_entries")
