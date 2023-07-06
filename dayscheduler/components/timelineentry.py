@@ -39,10 +39,10 @@ class TimelineEntry(Component.with_extensions(GridHelper, DragAndDrop)):
 
         if do_render_compact:
             self._apply_frame_stretch(rows=(1,), columns=(1,))
-            self._apply_dividers(AppConstants.DIVIDER_SIZE_LARGE, columns=(1,))
+            self._apply_dividers(AppConstants.DIVIDER_SIZE_VERY_LARGE, columns=(1,))
         else:
             self._apply_frame_stretch(rows=(2,), columns=(0,))
-            self._apply_dividers(AppConstants.DIVIDER_SIZE_LARGE, columns=(1,))
+            self._apply_dividers(AppConstants.DIVIDER_SIZE_VERY_LARGE, columns=(1,))
 
         # Title Label
         title_label = Label(

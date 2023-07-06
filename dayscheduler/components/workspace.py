@@ -22,7 +22,9 @@ class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
         self.styles["entry_frame"] = styles.get("entry_frame", {})
         self.styles["bin_frame"] = styles.get("bin_frame", {})
         self.styles["string_editor"] = styles.get("string_editor", {})
-        self.styles["number_stepper"] = styles.get("number_stepper", {})
+        self.styles["stepper"] = styles.get("stepper", {})
+        self.styles["stepper_button"] = styles.get("stepper_button", {})
+        self.styles["stepper_label"] = styles.get("stepper_label", {})
         self.styles["non_pending"] = styles.get("non_pending", {})
         self.styles["pending"] = styles.get("pending", {})
         self.styles["entry_non_pending"] = styles.get("entry_non_pending", {})
@@ -100,8 +102,14 @@ class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
                     "string_editor": {
                         **self.styles["string_editor"]
                     },
-                    "number_stepper": {
-                        **self.styles["number_stepper"]
+                    "stepper": {
+                        **self.styles["stepper"]
+                    },
+                    "stepper_button": {
+                        **self.styles["stepper_button"]
+                    },
+                    "stepper_label": {
+                        **self.styles["stepper_label"]
                     },
                     "non_pending": {**self.styles["entry_non_pending"]},
                     "pending": {**self.styles["entry_pending"]}

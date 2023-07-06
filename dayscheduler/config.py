@@ -70,8 +70,8 @@ class Config:
             "entry_frame": {
                 "relief": "raised",
                 "borderwidth": Constants.BORDERWIDTH_SMALL,
-                "padx": Constants.PAD_VERY_LARGE,
-                "pady": Constants.PAD_VERY_LARGE
+                "padx": Constants.PAD_MEDIUM,
+                "pady": Constants.PAD_MEDIUM
             },
             "bin_frame": {
                 "relief": "sunken",
@@ -80,7 +80,21 @@ class Config:
             "string_editor": {
                 "bg": Constants.COLOURS["very_light_green"],
                 "fg": Constants.COLOURS["dark_green"],
-                "font": Constants.FONT_SMALL_BOLD
+                "font": Constants.FONT_MEDIUM
+            },
+            "stepper": {
+                "bg": Constants.COLOURS["light_green"],
+                "font": Constants.FONT_SMALL
+            },
+            "stepper_button": {
+                "borderwidth": Constants.BORDERWIDTH_TINY,
+                "fg": Constants.COLOURS["dark_green"],
+                "disabledforeground": Constants.COLOURS["green"]
+            },
+            "stepper_label": {
+                "relief": "raised",
+                "borderwidth": Constants.BORDERWIDTH_TINY,
+                "fg": Constants.COLOURS["dark_green"]
             },
             "non_pending": {
                 "bg": Constants.COLOURS["very_light_grey"]

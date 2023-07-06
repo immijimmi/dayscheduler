@@ -1,5 +1,5 @@
 from tkcomponents import Component
-from tkcomponents.basiccomponents import StringEditor, NumberStepper
+from tkcomponents.basiccomponents import StringEditor, Stepper
 from tkcomponents.extensions import GridHelper, DragAndDrop
 
 from typing import Callable
@@ -19,7 +19,9 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
 
         styles = styles or {}
         self.styles["string_editor"] = styles.get("string_editor", {})
-        self.styles["number_stepper"] = styles.get("number_stepper", {})
+        self.styles["stepper"] = styles.get("stepper", {})
+        self.styles["stepper_button"] = styles.get("stepper_button", {})
+        self.styles["stepper_label"] = styles.get("stepper_label", {})
         self.styles["non_pending"] = styles.get("non_pending", {})
         self.styles["pending"] = styles.get("pending", {})
 
@@ -34,15 +36,16 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
 
             self._on_change(self, EntryKey.TITLE)
 
-        def on_change_numberstepper(stepper, increment_amount):
-            self.duration_m += increment_amount
+        def on_change_stepper(stepper_obj, step_amount):
+            self.duration_m += step_amount
 
             self._on_change(self, EntryKey.DURATION_M)
 
         self.children["string_editor"] = None
-        self.children["number_stepper"] = None
+        self.children["stepper"] = None
 
-        self._apply_dividers(AppConstants.DIVIDER_SIZE_SMALL, rows=(1,))
+        self._apply_frame_stretch(columns=(0,))
+        self._apply_dividers(AppConstants.DIVIDER_SIZE_LARGE, rows=(1,))
 
         string_editor = StringEditor(
             self._frame,
@@ -55,20 +58,27 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
         self.children["string_editor"] = string_editor
         string_editor.render().grid(row=0, column=0, sticky="nswe")
 
-        numberstepper = NumberStepper(
+        stepper = Stepper(
             self._frame,
-            get_data=lambda numberstepper_obj: self.duration_m,
-            on_change=on_change_numberstepper,
-            text_format="{0}m",
-            step_amounts=(15, 60),
+            get_data=lambda stepper_obj: self.duration_m,
+            on_change=on_change_stepper,
+            before_steps=(("-1h", -60), ("-15m", -15)),
+            after_steps=(("+15m", 15), ("+1h", 60)),
+            format_label=lambda stepper_obj: f"{stepper_obj.value // 60:02}:{stepper_obj.value % 60:02}",
             limits=(15, None),
             styles={
-                "button": {**self.styles["number_stepper"]},
-                "label": {**self.styles["number_stepper"]}
+                "button": {
+                    **self.styles["stepper"],
+                    **self.styles["stepper_button"]
+                },
+                "label": {
+                    **self.styles["stepper"],
+                    **self.styles["stepper_label"]
+                }
             }
         )
-        self.children["number_stepper"] = numberstepper
-        numberstepper.render().grid(row=2, column=0, sticky="nswe")
+        self.children["stepper"] = stepper
+        stepper.render().grid(row=2, column=0, sticky="nswe")
 
         self.add_draggable_widget(self._frame)
 
