@@ -12,7 +12,7 @@ from .workspacebin import WorkspaceBin
 
 
 class Workspace(Component.with_extensions(GridHelper, DragAndDrop)):
-    GRID_MINSIZES = (150, 2, 75)  # (column 0, divider rows, bin row)
+    GRID_MINSIZES = (180, 2, 75)  # (column 0, divider rows, bin row)
 
     def __init__(self, scheduler, container, on_change: Callable[[tuple[int, int]], None], styles=None):
         super().__init__(container, on_change=on_change, styles=styles)

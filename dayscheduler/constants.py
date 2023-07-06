@@ -23,8 +23,8 @@ class Constants:
         "very_light_grey": "#DCDDE0",
         "very_very_light_grey": "#E8E8EA",
 
-        "light_yellow": "#EEE3A5",
-        "yellow": "#F3DF74"
+        "light_yellow": "#ECE5C0",
+        "yellow": "#EFE29E"
     }
 
     PAD_SMALL = 2

@@ -9,6 +9,8 @@ from .enums import EntryKey
 
 
 class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
+    GRID_MINSIZES = (28, 38, 180)  # Rows 0 and 2, column 0, column 2
+
     def __init__(
             self, container,
             get_data: Callable[["WorkspaceEntry"], tuple[int, str, int]],
@@ -44,8 +46,12 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
         self.children["string_editor"] = None
         self.children["stepper"] = None
 
-        self._apply_frame_stretch(columns=(0,))
-        self._apply_dividers(AppConstants.DIVIDER_SIZE_LARGE, rows=(1,))
+        self._apply_frame_stretch(columns=(2,))
+        self._apply_dividers(AppConstants.DIVIDER_SIZE_LARGE, rows=(1,), columns=(1,))
+
+        self._apply_dividers(30, rows=(0, 2))
+        self._apply_dividers(52, columns=(0,))
+        self._apply_dividers(200, columns=(2,))
 
         string_editor = StringEditor(
             self._frame,
@@ -56,7 +62,7 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
             }
         )
         self.children["string_editor"] = string_editor
-        string_editor.render().grid(row=0, column=0, sticky="nswe")
+        string_editor.render().grid(row=0, column=2, sticky="nswe")
 
         stepper = Stepper(
             self._frame,
@@ -78,7 +84,7 @@ class WorkspaceEntry(Component.with_extensions(GridHelper, DragAndDrop)):
             }
         )
         self.children["stepper"] = stepper
-        stepper.render().grid(row=2, column=0, sticky="nswe")
+        stepper.render().grid(row=2, column=2, sticky="nswe")
 
         self.add_draggable_widget(self._frame)
 

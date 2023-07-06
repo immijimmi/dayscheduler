@@ -12,7 +12,7 @@ from .timelinemargincell import TimelineMarginCell
 
 
 class Timeline(Component.with_extensions(GridHelper, DragAndDrop)):
-    GRID_MINSIZES = (60, 200, 13)  # (column 0, column 1, all rows)
+    GRID_MINSIZES = (60, 200, 12)  # (column 0, column 1, all rows)
 
     def __init__(self, scheduler, container, get_data, styles=None):
         super().__init__(container, get_data=get_data, styles=styles)

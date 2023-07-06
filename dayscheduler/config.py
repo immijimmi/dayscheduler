@@ -79,8 +79,8 @@ class Config:
             },
             "string_editor": {
                 "bg": Constants.COLOURS["very_light_green"],
-                "fg": Constants.COLOURS["dark_green"],
-                "font": Constants.FONT_MEDIUM
+                "fg": Constants.COLOURS["green"],
+                "font": Constants.FONT_LARGE_BOLD
             },
             "stepper": {
                 "bg": Constants.COLOURS["light_green"],
