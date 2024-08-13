@@ -3,11 +3,8 @@ from tkcomponents.extensions import GridHelper
 from managedstate import State
 from managedstate.extensions import Registrar, Listeners
 
-from ..config import Config
-from ..constants import Constants as AppConstants
-from .timeline import Timeline
-from .workspace import Workspace
-from .enums import EntryKey
+from .config import Config
+from .components import Timeline, Workspace
 
 
 class Scheduler(Component.with_extensions(GridHelper)):

@@ -1,4 +1,3 @@
-from .scheduler import Scheduler
 from .timeline import Timeline
 from .timelineentry import TimelineEntry
 from .timelinecell import TimelineCell

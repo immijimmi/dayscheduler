@@ -2,7 +2,7 @@ from tkinter import Tk
 
 from .config import Config
 from .constants import Constants
-from .components import Scheduler
+from .scheduler import Scheduler
 
 
 class App:
